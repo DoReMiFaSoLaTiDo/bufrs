@@ -1,0 +1,34 @@
+[package]
+name = "sotrh"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cfg-if = "1"
+wgpu = "22.1"
+cgmath = "0.18"
+env_logger = "0.11.5"
+futures = "0.3"
+gfx-hal = "0.9"
+image = "0.25"
+log = "0.4"
+pollster = "0.3"
+winit = "0.30"
+bytemuck = { version = "1.16", features = ["derive"] }
+anyhow = "1.0"
+rand = "0.8.5"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_error_panic_hook = "0.1.6"
+console_log = "1.0"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4.30"
+web-sys = { version = "0.3", features = [
+  "Document",
+  "Window",
+  "Element",
+]}
+
+[lib]
+path = "src/my_lib.rs"
+crate-type = ["cdylib", "rlib"]
